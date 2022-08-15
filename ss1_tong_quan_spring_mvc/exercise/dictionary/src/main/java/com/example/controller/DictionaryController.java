@@ -14,19 +14,19 @@ public class DictionaryController {
     IDictionaryService iDictionaryService;
 
     @GetMapping("/")
-    public String home(){
+    public String home() {
         return "/index";
     }
 
     @GetMapping("/translate")
-    public String goTranslate(){
+    public String goTranslate() {
         return "/translate";
     }
 
     @PostMapping("/trans")
-    public String trans(@RequestParam String keySearch, Model model){
+    public String trans(@RequestParam String keySearch, Model model) {
         String result = iDictionaryService.trans(keySearch);
-        model.addAttribute("keySearch",keySearch);
+        model.addAttribute("keySearch", keySearch);
         model.addAttribute("result", result);
         return "/translate";
     }
