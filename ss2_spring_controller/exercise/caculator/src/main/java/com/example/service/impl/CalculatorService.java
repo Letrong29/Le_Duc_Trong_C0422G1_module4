@@ -9,7 +9,7 @@ public class CalculatorService implements ICalculatorService {
     @Override
     public double calculator(Double num1, Double num2, String operator) {
 
-        switch (operator){
+        switch (operator) {
             case "Addition(+)":
                 return num1 + num2;
             case "Subtraction(-)":
@@ -17,10 +17,10 @@ public class CalculatorService implements ICalculatorService {
             case "Multiplication(X)":
                 return num1 * num2;
             case "Division(/)":
-                if (num2 != 0){
+                if (num2 != 0) {
                     return num1 / num2;
-                }else {
-                    throw new ArithmeticException("lỗi chia cho không");
+                } else {
+                    throw new ArithmeticException();
                 }
             default:
                 return 0;

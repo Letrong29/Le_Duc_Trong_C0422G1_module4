@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f1bc6f4-ab23-40a4-b676-771e75b4529c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/configs/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/configs/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/CalculatorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/service/ICalculatorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CalculatorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sanwich-condiments/src/main/java/com/example/configs/AppConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sanwich-condiments/src/main/java/com/example/configs/AppInitializer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sanwich-condiments/src/main/java/com/example/controller/CondimentsController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sanwich-condiments/src/main/java/com/example/repository/ICondimentsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sanwich-condiments/src/main/java/com/example/repository/impl/CondimentsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sanwich-condiments/src/main/java/com/example/service/ICondimentsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sanwich-condiments/src/main/java/com/example/service/impl/CondimentsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../sanwich-condiments/src/main/webapp/WEB-INF/views/condiments.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/CalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/CalculatorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CalculatorService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../practice/customer-management" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +47,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../sanwich-condiments" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -170,6 +162,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660631765714</updated>
       <workItem from="1660631766949" duration="4706000" />
+      <workItem from="1660642957275" duration="607000" />
     </task>
     <servers />
   </component>
@@ -186,5 +179,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
