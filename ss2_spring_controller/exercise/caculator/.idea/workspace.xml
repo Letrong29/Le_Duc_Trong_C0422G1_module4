@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0f1bc6f4-ab23-40a4-b676-771e75b4529c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/controller/CalculatorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/controller/CalculatorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CalculatorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/service/impl/CalculatorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../practice/customer-management" beforeDir="false" afterPath="$PROJECT_DIR$/../../practice/customer-management" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -162,7 +159,7 @@
       <option name="presentableId" value="Default" />
       <updated>1660631765714</updated>
       <workItem from="1660631766949" duration="4706000" />
-      <workItem from="1660642957275" duration="607000" />
+      <workItem from="1660642957275" duration="1382000" />
     </task>
     <servers />
   </component>
