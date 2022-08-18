@@ -48,6 +48,7 @@ public class ProductController {
 
     @PostMapping("/save")
     public ModelAndView saveProduct(@ModelAttribute ProductForm productForm) {
+
         MultipartFile multipartFile = productForm.getImage();
         String fileName = multipartFile.getOriginalFilename();
 
@@ -56,9 +57,12 @@ public class ProductController {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
+
         Product product = new Product(productForm.getId(), productForm.getName(),
                 productForm.getDescription(), fileName);
+
         iProductService.save(product);
+
         ModelAndView modelAndView = new ModelAndView("/create");
         modelAndView.addObject("productForm", productForm);
         modelAndView.addObject("message", "Created new product successfully !");

@@ -7,7 +7,7 @@
   </head>
   <body>
 
-  <div class="container bg-light shadow-lg">
+  <div class="container bg-light shadow-lg mt-5 mb-5">
     <div class="row">
       <div class="col-lg-12 text-center fw-bold">
         <h3>TỜ KHAI Y TẾ</h3>
@@ -73,7 +73,7 @@
                 <label for="vehicles" class="form-label fw-bold">Thông tin đi lại</label>
               </div>
               <div>
-                <form:radiobuttons class="form-check-input" id="vehicles" aria-describedby="emailHelp" path="vehicles" items="${vehiclesList}"/>
+                <form:radiobuttons class="form-check-input ms-3 me-1" id="vehicles" aria-describedby="emailHelp" path="vehicles" items="${vehiclesList}"/>
               </div>
             </div>
           </div>
