@@ -66,7 +66,7 @@ public class ProductRepository implements IProductRepository {
         List<Product> productList = new ArrayList<>();
 
         for (Product p : productMap.values()) {
-            if (p.getName().contains(keySearch)) {
+            if (p.getName().toLowerCase().contains(keySearch.toLowerCase())) {
                 productList.add(p);
             }
         }
