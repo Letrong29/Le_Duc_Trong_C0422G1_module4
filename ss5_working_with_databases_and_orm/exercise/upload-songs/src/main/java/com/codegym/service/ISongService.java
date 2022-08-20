@@ -14,4 +14,5 @@ public interface ISongService {
 
     void remove(Song song);
 
+    void update(Song song);
 }

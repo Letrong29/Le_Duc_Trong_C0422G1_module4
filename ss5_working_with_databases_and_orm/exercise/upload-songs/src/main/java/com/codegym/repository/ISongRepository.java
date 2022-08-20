@@ -13,4 +13,6 @@ public interface ISongRepository {
     Song findById(int id);
 
     void remove(Song song);
+
+    void update(Song song);
 }

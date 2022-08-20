@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/layout :: head"></head>
+<body>
+
+<h3>Name: <span th:text="${song.songName}"></span></h3>
+<div>
+    <audio controls th:src="@{'/music-library/' + ${song.linkFile}}"></audio>
+</div>
+<div>
+    <h5>Artist: <span th:text="${song.artistName}"></span></h5>
+</div>
+<div>
+    <h5>Type: <span th:text="${song.type}"></span></h5>
+</div>
+<p>
+    <a th:href="@{/music}">
+        Back to song list
+    </a>
+</p>
+</body>
+</html>

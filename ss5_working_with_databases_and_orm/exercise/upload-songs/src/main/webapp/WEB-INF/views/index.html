@@ -14,7 +14,8 @@
     <tr>
         <th>Song Name</th>
         <th>Artist Name</th>
-        <th>Song</th>
+        <th>Type</th>
+        <th>Listen</th>
         <th colspan="2">Settings</th>
     </tr>
     </thead>
@@ -25,17 +26,18 @@
 
         <td th:text="${song.artistName}"></td>
 
-        <td>
-            <audio controls th:src="@{'/music-library/' + ${song.linkFile}}"></audio>
-        </td>
+        <td th:text="${song.type}"></td>
 
         <td>
-            <button th:href="@{/music/edit(id=${song.id})}">edit</button>
+            <a type="button" th:href="@{/music/listen(id=${song.id})}">play</a>
         </td>
         <td>
-            <button th:attr="onclick=|deleteSong(${song.id})|" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <a type="button" th:href="@{/music/edit(id=${song.id})}"> edit </a>
+        </td>
+        <td>
+            <a th:attr="onclick=|deleteSong(${song.id})|" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Delete
-            </button>
+            </a>
         </td>
     </tr>
     </tbody>

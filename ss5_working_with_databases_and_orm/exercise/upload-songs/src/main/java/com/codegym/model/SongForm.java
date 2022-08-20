@@ -10,15 +10,18 @@ public class SongForm {
 
     private String artistName;
 
+    private String type;
+
     private MultipartFile linkFile;
 
     public SongForm() {
     }
 
-    public SongForm(int id, String songName, String artistName, MultipartFile linkFile) {
+    public SongForm(int id, String songName, String artistName, String type, MultipartFile linkFile) {
         this.id = id;
         this.songName = songName;
         this.artistName = artistName;
+        this.type = type;
         this.linkFile = linkFile;
     }
 
@@ -44,6 +47,14 @@ public class SongForm {
 
     public void setArtistName(String artistName) {
         this.artistName = artistName;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public MultipartFile getLinkFile() {

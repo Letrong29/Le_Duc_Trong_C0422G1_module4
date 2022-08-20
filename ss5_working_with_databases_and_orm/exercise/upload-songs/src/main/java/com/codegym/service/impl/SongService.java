@@ -33,4 +33,9 @@ public class SongService implements ISongService {
     public void remove(Song song) {
         this.iSongRepository.remove(song);
     }
+
+    @Override
+    public void update(Song song) {
+        this.iSongRepository.update(song);
+    }
 }

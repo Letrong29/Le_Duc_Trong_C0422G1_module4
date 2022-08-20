@@ -3,8 +3,10 @@ package com.codegym.controller;
 import com.codegym.model.Song;
 import com.codegym.model.SongForm;
 import com.codegym.service.ISongService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -62,7 +64,7 @@ public class SongController {
             ex.printStackTrace();
         }
 
-        Song song = new Song(songForm.getId(), songForm.getSongName(), songForm.getArtistName(), fileName);
+        Song song = new Song(songForm.getId(), songForm.getSongName(), songForm.getArtistName(), songForm.getType(), fileName);
 
         iSongService.save(song);
 
@@ -76,14 +78,57 @@ public class SongController {
     }
 
     @PostMapping("/delete")
-    public String delete(@RequestParam int idSong, Model model){
+    public String delete(@RequestParam int idSong){
 
         Song song = this.iSongService.findById(idSong);
 
         this.iSongService.remove(song);
 
-        model.addAttribute("songs", this.iSongService.findAll());
+        return "redirect:/music";
+    }
 
-        return "/index";
+    @GetMapping("/edit")
+    public String showEditForm(@RequestParam int id, Model model){
+        Song song = this.iSongService.findById(id);
+
+        SongForm songForm = new SongForm();
+
+        BeanUtils.copyProperties(song, songForm);
+
+        model.addAttribute("songForm", songForm);
+
+        return "/edit";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute SongForm songForm){
+        Song oldSong = this.iSongService.findById(songForm.getId());
+
+        MultipartFile multipartFile = songForm.getLinkFile();
+
+        String linkFile = multipartFile.getOriginalFilename();
+
+        try {
+            FileCopyUtils.copy(multipartFile.getBytes(), new File(fileUpload + linkFile));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Song song = new Song(oldSong.getId(), songForm.getSongName(), songForm.getArtistName(), songForm.getType(), linkFile);
+        if (song.getLinkFile().equals("")) {
+            song.setLinkFile(oldSong.getLinkFile());
+        }
+
+        this.iSongService.update(song);
+
+        return "redirect:/music";
+    }
+
+    @GetMapping("/listen")
+    public String listen(@RequestParam int id, Model model){
+
+        model.addAttribute("song", this.iSongService.findById(id));
+
+        return "/listen";
     }
 }

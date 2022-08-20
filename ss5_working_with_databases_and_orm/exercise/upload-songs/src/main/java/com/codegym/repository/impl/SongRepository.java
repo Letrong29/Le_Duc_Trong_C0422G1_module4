@@ -49,4 +49,15 @@ public class SongRepository implements ISongRepository {
 
         entityTransaction.commit();
     }
+
+    @Override
+    public void update(Song song) {
+        EntityTransaction entityTransaction = BaseRepository.entityManager.getTransaction();
+
+        entityTransaction.begin();
+
+        BaseRepository.entityManager.merge(song);
+
+        entityTransaction.commit();
+    }
 }

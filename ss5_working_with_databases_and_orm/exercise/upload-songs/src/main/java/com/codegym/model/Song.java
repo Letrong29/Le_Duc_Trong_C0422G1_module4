@@ -14,15 +14,18 @@ public class Song {
 
     private String artistName;
 
+    private String type;
+
     private String linkFile;
 
     public Song() {
     }
 
-    public Song(int id, String songName, String artistName, String linkFile) {
+    public Song(int id, String songName, String artistName, String type, String linkFile) {
         this.id = id;
         this.songName = songName;
         this.artistName = artistName;
+        this.type = type;
         this.linkFile = linkFile;
     }
 
@@ -48,6 +51,14 @@ public class Song {
 
     public void setArtistName(String artistName) {
         this.artistName = artistName;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getLinkFile() {
