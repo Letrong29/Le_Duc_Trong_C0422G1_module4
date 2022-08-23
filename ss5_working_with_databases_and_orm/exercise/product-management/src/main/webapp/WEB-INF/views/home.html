@@ -15,8 +15,6 @@
       </div>
     </div>
 
-    <p th:text="${msg}"></p>
-
     <div class="row">
 
       <div class="col-lg-12">
@@ -54,7 +52,9 @@
             <td><span th:text="${product.getPrice()}"></span> $</td>
             <td th:text="${product.getProducer()}"></td>
             <td th:text="${product.getStatus()}"></td>
-            <td><img width="50" th:src="${product.getImg()}" alt=""></td>
+
+            <td><img width="50" th:src="@{'/up/' + ${product.link}}" alt=""></td>
+
             <td>
               <a th:href="@{/product/detail(id=${product.getId()})}" type="button" class="btn btn-dark">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16">

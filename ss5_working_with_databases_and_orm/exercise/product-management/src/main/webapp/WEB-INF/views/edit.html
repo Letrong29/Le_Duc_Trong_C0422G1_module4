@@ -18,7 +18,9 @@
 
         <div class="col-lg-6 bg-light text-dark shadow-lg">
             <h3 class="mb-3 mt-3 fst-italic">Edit Product</h3>
-            <form action="/product/update" method="post" th:object="${product}">
+
+            <form action="/product/update" method="post" th:object="${product}" enctype="multipart/form-data">
+
                 <input type="hidden" th:field="*{id}"/>
 
                 <div class="mb-3">
@@ -43,7 +45,12 @@
 
                 <div class="mb-3">
                     <label for="img" class="form-label fw-bold">Picture:</label>
-                    <input th:field="*{img}" type="text" class="form-control" id="img">
+                    <img width="50" th:src="@{'/up/' + ${product.link}}" alt="" id="img">
+                </div>
+
+                <div class="mb-3">
+                    <label for="imgFile" class="form-label fw-bold">Picture:</label>
+                    <input th:field="*{img}" type="file" class="form-control" id="imgFile">
                 </div>
 
                 <button type="submit" class="btn btn-dark mb-3">Update now</button>

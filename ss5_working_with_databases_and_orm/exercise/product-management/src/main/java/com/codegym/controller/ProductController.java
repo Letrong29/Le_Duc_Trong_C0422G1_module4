@@ -16,10 +16,10 @@ public class ProductController {
     private IProductService iProductService;
 
     @GetMapping(value = {"/home", ""})
-    public String goHome(Model model) {
+    public String goHome(@RequestParam(required = false, defaultValue = "") String keySearch,Model model) {
 
         model.addAttribute("productList",
-                this.iProductService.showList());
+                this.iProductService.showList(keySearch));
 
         return "home";
     }
@@ -41,7 +41,7 @@ public class ProductController {
         redirectAttributes.addAttribute("msg",
                 "successfully added new");
 
-        return "redirect:home";
+        return "redirect:/product/home";
     }
 
     @GetMapping("/edit")
@@ -62,7 +62,7 @@ public class ProductController {
         redirectAttributes.addAttribute("msg",
                 "successfully update");
 
-        return "redirect:home";
+        return "redirect:/product/home";
     }
 
     @PostMapping("/delete")
@@ -72,7 +72,7 @@ public class ProductController {
 
         this.iProductService.delete(product);
 
-        return "redirect:home";
+        return "redirect:/product/home";
     }
 
     @GetMapping("/detail")
@@ -82,15 +82,6 @@ public class ProductController {
                 this.iProductService.findById(id));
 
         return "detail";
-    }
-
-    @PostMapping("/search")
-    public String search(@RequestParam String keySearch, Model model) {
-
-        model.addAttribute("productList",
-                this.iProductService.search(keySearch));
-
-        return "home";
     }
 
 }

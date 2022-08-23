@@ -5,7 +5,10 @@ import com.codegym.repository.IProductRepository;
 import com.codegym.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.FileCopyUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -14,13 +17,26 @@ public class ProductService implements IProductService {
     @Autowired
     private IProductRepository iProductRepository;
 
+
     @Override
-    public List<Product> showList() {
-        return iProductRepository.showList();
+    public List<Product> showList(String keySearch) {
+        return this.iProductRepository.showList(keySearch);
     }
 
     @Override
     public void save(Product product) {
+
+        String link = "";
+        try {
+            link = product.getImg().getOriginalFilename();
+            FileCopyUtils.copy(product.getImg().getBytes(),
+                    new File("E:\\up\\" + link));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        product.setLink(link);
         this.iProductRepository.save(product);
     }
 
@@ -31,6 +47,20 @@ public class ProductService implements IProductService {
 
     @Override
     public void update(Product product) {
+
+        String link = "";
+
+        try {
+            link = product.getImg().getOriginalFilename();
+            FileCopyUtils.copy(product.getImg().getBytes(),
+                    new File("E:\\up\\" + link));
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        product.setLink(link);
+
         this.iProductRepository.update(product);
     }
 
@@ -39,8 +69,4 @@ public class ProductService implements IProductService {
         this.iProductRepository.delete(product);
     }
 
-    @Override
-    public List<Product> search(String keySearch) {
-        return this.iProductRepository.search(keySearch);
-    }
 }

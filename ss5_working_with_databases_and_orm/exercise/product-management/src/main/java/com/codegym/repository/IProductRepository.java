@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IProductRepository {
 
-    List<Product> showList();
+    List<Product> showList(String keySearch);
 
     void save(Product product);
 
@@ -16,5 +16,4 @@ public interface IProductRepository {
 
     void delete(Product product);
 
-    List<Product> search(String keySearch);
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IProductService {
 
-    List<Product> showList();
+    List<Product> showList(String keySearch);
 
     void save(Product product);
 
@@ -15,6 +15,4 @@ public interface IProductService {
     void update(Product product);
 
     void delete(Product product);
-
-    List<Product> search(String keySearch);
 }

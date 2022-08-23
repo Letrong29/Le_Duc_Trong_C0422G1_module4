@@ -18,7 +18,7 @@
 
         <div class="col-lg-6 bg-light text-dark shadow-lg">
             <h3 class="mb-3 mt-3 fst-italic">Add New Product</h3>
-            <form action="/product/save" method="post" th:object="${product}">
+            <form action="/product/save" method="post" th:object="${product}" enctype="multipart/form-data">
 
                 <div class="mb-3">
                     <label for="name" class="form-label fw-bold">Name:</label>
@@ -42,7 +42,7 @@
 
                 <div class="mb-3">
                     <label for="img" class="form-label fw-bold">Picture:</label>
-                    <input th:field="*{img}" type="text" class="form-control" id="img">
+                    <input th:field="*{img}" type="file" class="form-control" id="img">
                 </div>
 
                 <button type="submit" class="btn btn-dark mb-3">Add now</button>
