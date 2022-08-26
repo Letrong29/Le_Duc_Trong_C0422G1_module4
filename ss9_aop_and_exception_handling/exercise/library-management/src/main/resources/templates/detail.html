@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+    <link th:replace="home :: css">
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item text-center fw-bold">Chi tiếc sách</li>
+                <li class="list-group-item">
+                    <b>Tên:</b>
+                    <span th:text="${book.name}"></span></li>
+                <li class="list-group-item">
+                    <b>Số lượng:</b>
+                    <span th:text="${book.amount}"></span> / <span th:text="${book.total}"></span>
+                </li>
+                <li class="list-group-item">
+                    <b>Mã mượn:</b>
+                    <span th:text="${book.id}"></span>
+                </li>
+                <li class="list-group-item">
+                    <a th:href="@{/library/rent(idRent=${book.id})}" class="btn btn-primary">Mượn</a>
+                    <a href="/library" class="btn btn-primary">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-90deg-left" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1.146 4.854a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H12.5A2.5 2.5 0 0 1 15 6.5v8a.5.5 0 0 1-1 0v-8A1.5 1.5 0 0 0 12.5 5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4z"/>
+                        </svg>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
+
+<script th:replace="home :: js"></script>
+</body>
+</html>

@@ -1,5 +1,6 @@
 package com.codegym.dto;
 
+import com.codegym.common.DateTimeUtils;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
@@ -7,9 +8,6 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeParseException;
 
 public class UserDto implements Validator {
 
@@ -114,27 +112,7 @@ public class UserDto implements Validator {
                     "Wrong format !");
         }
 
-        if (!userDto.age.isEmpty()){
-            try {
-                LocalDate age = LocalDate.parse(userDto.age);
-
-                int checkAge = Period.between(age, LocalDate.now()).getYears();
-
-                if (checkAge < 18){
-                    errors.rejectValue("age",
-                            "create.age",
-                            "under 18 years old !");
-                }
-            }catch (DateTimeParseException e){
-                errors.rejectValue("age",
-                        "create.age",
-                        "Wrong format !");
-            }
-        }else {
-            errors.rejectValue("age",
-                    "create.age",
-                    "please enter !");
-        }
+        DateTimeUtils.checkAge(userDto.age, errors);
 
         if (!userDto.phoneNumber.matches("^(0)\\d{9}$")){
             errors.rejectValue("phoneNumber",
