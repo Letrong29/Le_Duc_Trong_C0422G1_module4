@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Shopping Cart</title>
+    <link th:replace="shop :: css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <p>
+                <a href="/shop" class="btn btn-primary">Shop</a>
+            </p>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <div class="col-lg-12 text-center">
+            <h1>Your Cart</h1>
+        </div>
+    </div>
+
+    <div class="text-center">
+        <div class="col-lg-12">
+            <form th:action="@{/shop}" method="post">
+                <table class="table text-center">
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                    <tr th:each="product: ${cart.keySet()}">
+                        <td>
+                            <a th:href="@{/remove(id= ${product.id})}" th:text="${'X'}" class="btn btn-primary"></a>
+                            <span th:text="${product.name}"></span>
+                        </td>
+                        <td>
+                            <a id="decrease_button" th:href="@{/add(id= ${product.id},expression ='-')}"
+                               th:text="${'-'}"
+                               class="btn btn-primary"></a>
+
+                            <span th:text="${cart.get(product)}"></span>
+
+                            <a id="increase_button"
+                               th:href="@{/add(id= ${product.id},expression ='+')}"
+                               th:text="${'+'}" class="btn btn-primary"></a>
+                        </td>
+                        <td th:text="${product.price}"></td>
+                    </tr>
+                    <tr>
+                        <td>Total</td>
+                        <td></td>
+                        <td th:text="${total}"></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script th:replace="shop :: js"></script>
+</body>
+</html>
