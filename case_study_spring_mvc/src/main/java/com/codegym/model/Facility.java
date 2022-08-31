@@ -1,6 +1,7 @@
 package com.codegym.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "facility")
@@ -42,10 +43,13 @@ public class Facility {
     @JoinColumn(name = "facility_type_id", referencedColumnName = "id")
     private FacilityType facilityType;
 
+    @OneToMany(mappedBy = "facilityId")
+    private List<Contract> contracts;
+
     public Facility() {
     }
 
-    public Facility(int id, String name, int area, double cost, int maxPeople, String standard, String otherConvenience, double poolArea, int floors, String facilityFree, RentType rentType, FacilityType facilityType) {
+    public Facility(int id, String name, int area, double cost, int maxPeople, String standard, String otherConvenience, double poolArea, int floors, String facilityFree, RentType rentType, FacilityType facilityType, List<Contract> contracts) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -58,6 +62,7 @@ public class Facility {
         this.facilityFree = facilityFree;
         this.rentType = rentType;
         this.facilityType = facilityType;
+        this.contracts = contracts;
     }
 
     public int getId() {
@@ -154,5 +159,13 @@ public class Facility {
 
     public void setFacilityType(FacilityType facilityType) {
         this.facilityType = facilityType;
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 }

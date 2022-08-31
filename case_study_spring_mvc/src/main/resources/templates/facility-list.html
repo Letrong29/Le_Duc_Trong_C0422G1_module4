@@ -12,12 +12,12 @@
 
 <div class="container-fluid">
     <div class="row mt-5">
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-center fst-italic">
             <h1>Service Management</h1>
         </div>
     </div>
 
-    <div class="row mt-1 ">
+    <div class="row mt-1">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
             <div th:if="${message != null}">
@@ -44,8 +44,8 @@
 
     <div class="row mt-2">
         <div class="col-lg-12 d-flex justify-content-center align-items-center">
-            <form action="/ServiceFurama?action=searchFacility" method="post" class="d-flex">
-                <input class="form-control me-2" type="search" name="keySearch" placeholder="Search" aria-label="Search">
+            <form action="/facility/home" method="get" class="d-flex">
+                <input class="form-control me-2 fst-italic" type="search" name="keySearch" placeholder="Search" aria-label="Search">
                 <button class="btn btn-success" type="submit">
                     <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
                         <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
@@ -57,7 +57,7 @@
 
     <div class="row mt-3">
         <div class="col-lg-12">
-            <table class="table text-center">
+            <table class="table table-hover text-center fst-italic">
                 <thead>
                 <tr class="table-success">
                     <th scope="col">#</th>
@@ -111,7 +111,7 @@
     </div>
 
     <div class="row mt-3">
-        <div class="col-lg-4 text-end">
+        <div class="col-lg-4 text-end fst-italic">
             <a th:if="${facilitys.hasPrevious()}"
                th:href="@{/facility/home(page=${facilitys.number -1}, keySearch=${keySearch})}"
                class="btn btn-success">previous</a>
@@ -120,7 +120,7 @@
             <span th:text="${facilitys.number + 1}"></span> /
             <span th:text="${facilitys.totalPages}"></span>
         </div>
-        <div class="col-lg-4 text-start">
+        <div class="col-lg-4 text-start fst-italic">
             <a th:if="${facilitys.hasNext()}"
                th:href="@{/facility/home(page=${facilitys.number + 1}, keySearch=${keySearch})}"
                class="btn btn-success">next</a>

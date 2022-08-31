@@ -13,12 +13,12 @@
 <div class="row mt-5">
     <div class="col-lg-3"></div>
     <div style="background: #e9f2ef" class="col-lg-6 shadow-lg">
-        <h1 class="text-center">Create Facility Form</h1>
+        <h1 class="text-center fst-italic">Create Facility Form</h1>
 
         <form action="/facility/save" method="post" th:object="${facility}" class="mt-5">
 
             <div class="mb-3" id="facilityType">
-                <div class="form-check-inline">
+                <div class="form-check-inline ">
                     <b>Choice Facility Type:</b>
                 </div>
                 <div th:if="${message != null}">
@@ -55,27 +55,27 @@
             </div>
 
             <div class="mb-3">
-                <label for="name" class="form-label fst-italic fw-bold">Name</label>
+                <label for="name" class="form-label fst-italic fw-bold ">Name Service:</label>
                 <input th:field="*{name}"  type="text" id="name" class="form-control" >
             </div>
 
             <div class="mb-3">
-                <label for="area" class="form-label fst-italic fw-bold">Area</label>
+                <label for="area" class="form-label fst-italic fw-bold">Area:</label>
                 <input th:field="*{area}" type="number" class="form-control" id="area">
             </div>
 
             <div class="mb-3">
-                <label for="cost" class="form-label fst-italic fw-bold">Cost</label>
+                <label for="cost" class="form-label fst-italic fw-bold">Cost:</label>
                 <input th:field="*{cost}" type="number" class="form-control" id="cost">
             </div>
 
             <div class="mb-3">
-                <label for="maxPeople" class="form-label fst-italic fw-bold">Max People</label>
+                <label for="maxPeople" class="form-label fst-italic fw-bold">Max People:</label>
                 <input th:field="*{maxPeople}" type="number" class="form-control" id="maxPeople">
             </div>
 
             <div class="mb-3">
-                <label for="rentType" class="form-label fst-italic fw-bold">Rent Type</label>
+                <label for="rentType" class="form-label fst-italic fw-bold">Rent Type:</label>
                 <select th:field="*{rentType}" id="rentType" name="rentType" class="form-select" aria-label="Default select example">
                     <option th:each="rentTypeObj : ${rentTypeList}"
                             th:value="${rentTypeObj.id}"
@@ -85,27 +85,27 @@
             </div>
 
             <div class="mb-3" id="opt1" style="display: none">
-                <label for="roomStandard" class="form-label fst-italic fw-bold">Room Standard</label>
+                <label for="roomStandard" class="form-label fst-italic fw-bold">Room Standard:</label>
                 <select th:field="*{standard}" id="roomStandard" name="standard" class="form-select" aria-label="Default select example">
                     <option value="Normal">normal</option>
                     <option value="Vip">vip</option>
                 </select>
             </div>
             <div class="mb-3" id="opt2" style="display: none">
-                <label for="poolArea" class="form-label fst-italic fw-bold">Pool Area</label>
+                <label for="poolArea" class="form-label fst-italic fw-bold">Pool Area:</label>
                 <input th:field="*{poolArea}"  type="number" value="0" name="Pool" class="form-control" id="poolArea">
             </div>
             <div class="mb-3" id="opt3" style="display: none">
-                <label for="numberOfFloors" class="form-label fst-italic fw-bold">Number Of Floors</label>
+                <label for="numberOfFloors" class="form-label fst-italic fw-bold">Number Of Floors:</label>
                 <input  th:field="*{floors}" type="number" value="0" name="floors" class="form-control" id="numberOfFloors">
             </div>
             <div class="mb-3" id="opt4" style="display: none">
-                <label for="descriptionOtherConvenience" class="form-label fst-italic fw-bold">Description Other Convenience</label>
+                <label for="descriptionOtherConvenience" class="form-label fst-italic fw-bold">Description Other Convenience:</label>
                 <input  th:field="*{otherConvenience}" type="text" name="convenience" class="form-control" id="descriptionOtherConvenience">
             </div>
 
             <div class="mb-3" id="opt5" style="display: none">
-                <label for="freeServiceIncluded" class="form-label fst-italic fw-bold">Free Service Included</label>
+                <label for="freeServiceIncluded" class="form-label fst-italic fw-bold">Free Service Included:</label>
                 <input  th:field="*{facilityFree}" type="text" name="free" class="form-control" id="freeServiceIncluded">
             </div>
             <div>

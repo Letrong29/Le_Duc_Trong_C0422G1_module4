@@ -2,6 +2,7 @@ package com.codegym.model;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 public class Customer {
@@ -31,10 +32,13 @@ public class Customer {
     @JoinColumn(name = "customer_type_id", referencedColumnName = "id")
     private CustomerType customerType;
 
+    @OneToMany(mappedBy = "customerId")
+    private List<Contract> contracts;
+
     public Customer() {
     }
 
-    public Customer(int id, String name, String dateOfBirth, boolean gender, String idCard, String phoneNumber, String email, String address, CustomerType customerType) {
+    public Customer(int id, String name, String dateOfBirth, boolean gender, String idCard, String phoneNumber, String email, String address, CustomerType customerType, List<Contract> contracts) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -44,6 +48,7 @@ public class Customer {
         this.email = email;
         this.address = address;
         this.customerType = customerType;
+        this.contracts = contracts;
     }
 
     public int getId() {
@@ -116,5 +121,13 @@ public class Customer {
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
+    }
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
     }
 }
