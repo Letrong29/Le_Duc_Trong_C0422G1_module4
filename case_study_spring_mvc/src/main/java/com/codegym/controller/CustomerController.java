@@ -1,6 +1,6 @@
 package com.codegym.controller;
 
-import com.codegym.model.Customer;
+import com.codegym.model.customer.Customer;
 import com.codegym.service.ICustomerService;
 import com.codegym.service.ICustomerTypeService;
 import org.springframework.beans.factory.annotation.Autowired;

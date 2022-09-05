@@ -12,13 +12,13 @@
 
 <div class="container-fluid">
     <div class="row mt-5">
-        <div class="col-lg-12 text-center">
+        <div class="col-lg-12 text-center fst-italic">
             <h1>Contract List</h1>
         </div>
     </div>
     <div class="row mt-3">
         <div class="col-lg-12">
-            <table class="table">
+            <table class="table fst-italic">
                 <thead>
                 <tr class="table-success">
                     <th scope="col">#</th>
@@ -28,7 +28,8 @@
                     <th scope="col">End Date</th>
                     <th scope="col">Deposit</th>
                     <th scope="col">Total Mony</th>
-                    <th scope="col" colspan="2">Attach Service</th>
+                    <th scope="col" >Detail</th>
+                    <th scope="col">Attach Service</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -41,12 +42,14 @@
                     <td th:text="${contract.deposit}"></td>
                     <td></td>
                     <td>
-                        <!-- Button Create Contract Detail modal -->
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#createModal">
-                            +
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cloud-plus-fill" viewBox="0 0 16 16">
+                                <path d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2zm.5 4v1.5H10a.5.5 0 0 1 0 1H8.5V10a.5.5 0 0 1-1 0V8.5H6a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 1 0z"/>
+                            </svg>
                         </button>
                     </td>
                     <td>
+
                         <button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#modalDelete">
                             Attach Service List
                         </button>
@@ -75,46 +78,32 @@
     </div>
 </div>
 
-<!-- Modal delete -->
+<!-- Modal Attach Service List -->
 <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Attach Service List</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <table class="table">
+                <table class="table table-success">
                     <thead>
                     <tr>
                         <th scope="col">#</th>
-                        <th scope="col">Name of Attach Service</th>
+                        <th scope="col">Name</th>
                         <th scope="col">Unit</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Amount</th>
+                        <th scope="col">Cost</th>
+                        <th scope="col">Status</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
+                    <tr th:each="attachFacility, status : ${attachFacilityList}">
+                        <th th:text="${status.count}" scope="row">1</th>
+                        <td th:text="${attachFacility.name}"></td>
+                        <td th:text="${attachFacility.unit}"></td>
+                        <td th:text="${attachFacility.cost}"></td>
+                        <td th:text="${attachFacility.status}"></td>
                     </tr>
                     </tbody>
                 </table>

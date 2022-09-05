@@ -1,5 +1,6 @@
 package com.codegym.controller;
 
+import com.codegym.service.IAttachFacilityService;
 import com.codegym.service.IContractService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -19,6 +20,9 @@ public class ContractController {
     @Autowired
     private IContractService iContractService;
 
+    @Autowired
+    private IAttachFacilityService iAttachFacilityService;
+
     @GetMapping("/home")
     public String goHome(@PageableDefault(size = 3)Pageable pageable,
                          @RequestParam Optional<String> keySearch,
@@ -28,6 +32,9 @@ public class ContractController {
 
         model.addAttribute("contracts",
                 this.iContractService.findAll(pageable));
+
+        model.addAttribute("attachFacilityList",
+                this.iAttachFacilityService.findAll());
 
         return "contract-list";
     }

@@ -1,6 +1,6 @@
 package com.codegym.controller;
 
-import com.codegym.model.Employee;
+import com.codegym.model.employee.Employee;
 import com.codegym.service.IDivisionService;
 import com.codegym.service.IEducationDegreeService;
 import com.codegym.service.IEmployeeService;

@@ -1,6 +1,6 @@
 package com.codegym.controller;
 
-import com.codegym.model.Facility;
+import com.codegym.model.facility.Facility;
 import com.codegym.service.IFacilityService;
 import com.codegym.service.IFacilityTypeService;
 import com.codegym.service.IRentTypeService;
