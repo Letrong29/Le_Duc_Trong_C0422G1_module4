@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../static/css/bootstrap.css">
+
+</head>
+<body>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 text-center mb-3 mt-3">
+            <h1>create new model</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-6">
+            <form>
+                <div class="mb-3">
+                    <label for="model" class="form-label">Model:</label>
+                    <input type="text" class="form-control" id="model">
+                </div>
+
+                <div class="mb-3">
+                    <label for="price" class="form-label">Price:</label>
+                    <input type="number" class="form-control" id="price">
+                </div>
+
+                <div class="mb-3">
+                    <label for="producer" class="form-label">Producer:</label>
+                    <input type="text" class="form-control" id="producer">
+                </div>
+
+                <button type="submit" id="btnCreate" class="btn btn-primary w-100 mb-3">Add New</button>
+
+                <a type="button" class="btn btn-primary w-100" href="home.html">Back to list</a>
+            </form>
+        </div>
+        <div class="col-lg-3"></div>
+    </div>
+</div>
+
+<script src="../static/js/bootstrap.js"></script>
+<script src="../static/jquery-3.6.1.min.js"></script>
+<script>
+    $("#btnCreate").click(function () {
+        let newModel = $("#model").val();
+        let newPrice = $("#price").val();
+        let newProducer = $("#producer").val();
+
+        let phoneObj = {
+            model: newModel,
+            price: newPrice,
+            producer: newProducer
+        }
+
+        $.ajax({
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            type: "POST", //GET, DELETE, PUT...
+            url: "http://localhost:8080/smartphone/create",
+            data: JSON.stringify(phoneObj),
+            success: function(resultSuccess){
+                alert('register successfully!')
+            },
+            error: function(resultError) {
+                alert('error');
+
+            }
+        });
+    })
+</script>
+</body>
+</html>
