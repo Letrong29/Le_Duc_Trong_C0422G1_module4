@@ -2,53 +2,78 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
   <title>Login</title>
+  <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/bootstrap.css">
+  <link rel="stylesheet" href="/bootstrap-5.0.2-dist/css/mdb.min.css">
 </head>
 <body>
+<nav class="navbar navbar-light bg-light" >
+  <div class="container-fluid" style="background: #272882">
+    <a class="navbar-brand" href="#">
+      <img src="https://codegym.vn/wp-content/uploads/2017/03/CodeGym-3-02-copy.jpg"
+           alt="" width="200" height="50" class="d-inline-block align-text-top">
+    </a>
+  </div>
+</nav>
 <!-- Include _menu.html -->
-<th:block th:include="/_menu"></th:block>
+<div class="container">
 
-<h1>Login</h1>
+  <div class="row">
+    <div class="col-lg-12">
+      <!-- /login?error=true -->
+      <div th:if="${#request.getParameter('error') == 'true'}"
+           style="color:red;margin:10px 0px;">
+        Login Failed!!!<br />
+        Reason :
+        <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
+              th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
+                  Static summary
+           </span>
+      </div>
+    </div>
+  </div>
 
-<!-- /login?error=true -->
-<div th:if="${#request.getParameter('error') == 'true'}"
-     style="color:red;margin:10px 0px;">
-  Login Failed!!!<br />
-  Reason :
-  <span th:if="${#session!= null and #session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION') != null}"
-        th:utext="${#session.getAttribute('SPRING_SECURITY_LAST_EXCEPTION').message}">
-                Static summary
-         </span>
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4 shadow-5 mt-5">
+      <form name='f' th:action="@{/j_spring_security_check}" method='POST'>
+        <h1 class="text-center mt-3 mb-3">Login</h1>
+        <!-- Email input -->
+        <div class="form-outline mb-4">
+          <input type="text" name='username' value='' id="form1Example1" class="form-control" />
+          <label class="form-label" for="form1Example1">User name</label>
+        </div>
 
+        <!-- Password input -->
+        <div class="form-outline mb-4">
+          <input type='password' name='password' id="form1Example2" class="form-control" />
+          <label class="form-label" for="form1Example2">Password</label>
+        </div>
+
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row mb-4">
+          <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+              <label class="form-check-label" for="form1Example3"> Remember me </label>
+            </div>
+          </div>
+
+          <div class="col">
+            <!-- Simple link -->
+            <a href="#!">Forgot password?</a>
+          </div>
+        </div>
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block w-100 mb-3">Sign in</button>
+      </form>
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
 </div>
 
-<h3>Enter user name and password:</h3>
-<form name='f' th:action="@{/j_spring_security_check}" method='POST'>
-  <table>
-    <tr>
-      <td>User:</td>
-      <td><input type='text' name='username' value=''></td>
-    </tr>
-    <tr>
-      <td>Password:</td>
-      <td><input type='password' name='password' /></td>
-    </tr>
-    <tr>
-      <td>Remember Me?</td>
-      <td><input type="checkbox" name="remember-me" /></td>
-    </tr>
-    <tr>
-      <td><input name="submit" type="submit" value="submit" /></td>
-    </tr>
-  </table>
-</form>
-
-<br>
-Username/pass:
-<ul>
-  <li>dbuser1/123</li>
-  <li>dbadmin1/123</li>
-</ul>
-
+<script src="/bootstrap-5.0.2-dist/js/bootstrap.js"></script>
+<script src="/bootstrap-5.0.2-dist/js/mdb.min.js"></script>
 </body>
-
 </html>

@@ -69,6 +69,9 @@ public class BlogController {
         model.addAttribute("blog",
                 this.iBlogService.findById(id));
 
+        model.addAttribute("categorys",
+                this.iCategoryService.findAll());
+
         return "blog-read";
     }
 

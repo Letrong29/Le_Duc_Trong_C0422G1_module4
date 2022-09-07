@@ -9,15 +9,23 @@
 
 <nav th:fragment="header" style="background: #272882" class="navbar navbar-expand-lg navbar-light">
     <div class="container-fluid">
-        <a class="navbar-brand text-white" href="/blog">Blog.codegym</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown1" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        <img style="width: 30px; border-radius: 50%" src="https://scontent.fsgn2-5.fna.fbcdn.net/v/t39.30808-6/276068861_858360805563559_4998869004183065644_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=EwKWTEYlxEUAX_PDIrq&_nc_ht=scontent.fsgn2-5.fna&oh=00_AT_-Sk2xr4igU7QVK1PQqMieqoMVk6c3ug9IIfcJfJwVfw&oe=631E3272" alt="">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown1">
+                        <li>
+                            <a th:if="${#request.userPrincipal != null}" th:href="@{/logout}"
+                               class="nav-link text-dark text-center">Logout</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="/blog">Home</a>
+                    <a class="nav-link active text-white" aria-current="page" href="/blog/home">Home</a>
                 </li>
 
                 <li class="nav-item dropdown">
@@ -30,7 +38,6 @@
                         <li><a class="dropdown-item" href="/category/create">Category</a></li>
                     </ul>
                 </li>
-
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown2" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
