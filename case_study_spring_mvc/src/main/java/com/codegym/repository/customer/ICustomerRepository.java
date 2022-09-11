@@ -9,4 +9,7 @@ public interface ICustomerRepository extends JpaRepository<Customer, Integer> {
 
     Page<Customer> findAllByNameContaining(String nameFacility, Pageable pageable);
 
+    Page<Customer> findAllByContracts_EndDateGreaterThan(String now ,Pageable pageable);
+
+
 }

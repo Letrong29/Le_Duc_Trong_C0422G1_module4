@@ -1,17 +1,23 @@
 package com.codegym.controller;
 
+import com.codegym.dto.facility.FacilityDto;
 import com.codegym.model.facility.Facility;
+import com.codegym.model.facility.FacilityType;
+import com.codegym.model.facility.RentType;
 import com.codegym.service.IFacilityService;
 import com.codegym.service.IFacilityTypeService;
 import com.codegym.service.IRentTypeService;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.validation.Valid;
 import java.util.Optional;
 
 @Controller
@@ -45,7 +51,7 @@ public class FacilityController {
     @GetMapping("/create")
     public String goCreateForm(Model model){
 
-        model.addAttribute("facility", new Facility());
+        model.addAttribute("facilityDto", new FacilityDto());
 
         model.addAttribute("facilityTypeList",
                 this.iFacilityTypeService.findAll());
@@ -57,7 +63,33 @@ public class FacilityController {
     }
 
     @PostMapping("/save")
-    public String saveFacility(@ModelAttribute Facility facility, RedirectAttributes redirectAttributes){
+    public String saveFacility(@ModelAttribute @Valid FacilityDto facilityDto,
+                               BindingResult bindingResult,
+                               RedirectAttributes redirectAttributes,
+                               Model model){
+
+        new FacilityDto().validate(facilityDto, bindingResult);
+
+        if (bindingResult.hasErrors()){
+            model.addAttribute("facilityTypeList",
+                    this.iFacilityTypeService.findAll());
+
+            model.addAttribute("rentTypeList",
+                    this.iRentTypeService.findAll());
+
+            return "facility-create";
+        }
+
+        Facility facility = new Facility();
+        BeanUtils.copyProperties(facilityDto, facility);
+
+        FacilityType facilityType = new FacilityType();
+        facilityType.setId(facilityDto.getFacilityType().getId());
+        facilityDto.setFacilityType(facilityType);
+
+        RentType rentType = new RentType();
+        rentType.setId(facilityDto.getRentType().getId());
+        facilityDto.setRentType(rentType);
 
         this.iFacilityService.save(facility);
 

@@ -20,7 +20,8 @@ public class Employee {
     @Column(name = "id_card")
     private String idCard;
 
-    private double salary;
+    @Column(columnDefinition = "double")
+    private String salary;
 
     @Column(name = "phone_number")
     private String phoneNumber;
@@ -47,7 +48,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(int id, String name, String dateOfBirth, String idCard, double salary, String phoneNumber, String email, String address, Position position, EducationDegree educationDegree, Division division, List<Contract> contracts) {
+    public Employee(int id, String name, String dateOfBirth, String idCard, String salary, String phoneNumber, String email, String address, Position position, EducationDegree educationDegree, Division division, List<Contract> contracts) {
         this.id = id;
         this.name = name;
         this.dateOfBirth = dateOfBirth;
@@ -94,11 +95,11 @@ public class Employee {
         this.idCard = idCard;
     }
 
-    public double getSalary() {
+    public String getSalary() {
         return salary;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(String salary) {
         this.salary = salary;
     }
 

@@ -3,6 +3,7 @@ package com.codegym.model.customer;
 import com.codegym.model.contract.Contract;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity

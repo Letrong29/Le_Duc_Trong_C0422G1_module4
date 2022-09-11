@@ -18,4 +18,24 @@ public class ContractService implements IContractService {
     public Page<Contract> findAll(Pageable pageable) {
         return this.iContractRepository.findAll(pageable);
     }
+
+    @Override
+    public Contract findById(int id) {
+        return this.iContractRepository.findById(id).orElse(new Contract());
+    }
+
+    @Override
+    public void save(Contract contract) {
+        this.iContractRepository.save(contract);
+    }
+
+    @Override
+    public void remove(int id) {
+        this.iContractRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Contract> findAllByEndDateGreaterThan(String now, Pageable pageable) {
+        return this.iContractRepository.findAllByEndDateGreaterThan(now, pageable);
+    }
 }

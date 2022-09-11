@@ -3,6 +3,7 @@ package com.codegym.model.contract;
 import com.codegym.model.customer.Customer;
 import com.codegym.model.facility.Facility;
 import com.codegym.model.employee.Employee;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 import java.util.List;

@@ -15,12 +15,14 @@ public class Facility {
 
     private String name;
 
-    private int area;
+    @Column(columnDefinition = "int")
+    private String area;
 
-    private double cost;
+    @Column(columnDefinition = "double")
+    private String cost;
 
-    @Column(name = "max_people")
-    private int maxPeople;
+    @Column(name = "max_people", columnDefinition = "int")
+    private String maxPeople;
 
     @Column(name = "standard_room")
     private String standard;
@@ -28,11 +30,11 @@ public class Facility {
     @Column(name = "description_other_convenience")
     private String otherConvenience;
 
-    @Column(name = "pool_area")
-    private double poolArea;
+    @Column(name = "pool_area", columnDefinition = "double")
+    private String poolArea;
 
-    @Column(name = "number_of_floor")
-    private int floors;
+    @Column(name = "number_of_floor", columnDefinition = "int")
+    private String floors;
 
     @Column(name = "facility_free")
     private String facilityFree;
@@ -51,7 +53,7 @@ public class Facility {
     public Facility() {
     }
 
-    public Facility(int id, String name, int area, double cost, int maxPeople, String standard, String otherConvenience, double poolArea, int floors, String facilityFree, RentType rentType, FacilityType facilityType, List<Contract> contracts) {
+    public Facility(int id, String name, String area, String cost, String maxPeople, String standard, String otherConvenience, String poolArea, String floors, String facilityFree, RentType rentType, FacilityType facilityType, List<Contract> contracts) {
         this.id = id;
         this.name = name;
         this.area = area;
@@ -83,27 +85,27 @@ public class Facility {
         this.name = name;
     }
 
-    public int getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(int area) {
+    public void setArea(String area) {
         this.area = area;
     }
 
-    public double getCost() {
+    public String getCost() {
         return cost;
     }
 
-    public void setCost(double cost) {
+    public void setCost(String cost) {
         this.cost = cost;
     }
 
-    public int getMaxPeople() {
+    public String getMaxPeople() {
         return maxPeople;
     }
 
-    public void setMaxPeople(int maxPeople) {
+    public void setMaxPeople(String maxPeople) {
         this.maxPeople = maxPeople;
     }
 
@@ -123,19 +125,19 @@ public class Facility {
         this.otherConvenience = otherConvenience;
     }
 
-    public double getPoolArea() {
+    public String getPoolArea() {
         return poolArea;
     }
 
-    public void setPoolArea(double poolArea) {
+    public void setPoolArea(String poolArea) {
         this.poolArea = poolArea;
     }
 
-    public int getFloors() {
+    public String getFloors() {
         return floors;
     }
 
-    public void setFloors(int floors) {
+    public void setFloors(String floors) {
         this.floors = floors;
     }
 
